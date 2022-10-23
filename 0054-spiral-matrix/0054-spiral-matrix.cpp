@@ -11,14 +11,9 @@ public:
     int dr[] = { 0, 1, 0, -1 };
     int dc[] = { 1, 0, -1, 0 };
  
-    int x = 0, y = 0, di = 0;
- 
-    // Iterate from 0 to m * n - 1
+    int x = 0, y = 0, di = 0; 
     for (int i = 0; i < m * n; i++) {
-        ans.push_back(matrix[x][y]);
-        // on normal geeksforgeeks ui page it is showing
-        // 'ans.push_back(matrix[x])' which gets copied as
-        // this only and gives error on compilation,
+        ans.push_back(matrix[x][y]); 
         seen[x][y] = true;
         int newX = x + dr[di];
         int newY = y + dc[di];
