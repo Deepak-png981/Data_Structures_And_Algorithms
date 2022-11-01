@@ -10,7 +10,7 @@ public:
         int idx = -1;
         //traversing from the back of the array
         for(int i = n-1; i>0; i--){
-            //comparing .. finding out the index for which the next element is smaller than the current element
+        //comparing .. finding out the index for which the next element is smaller than the current element
             if(nums[i] > nums[i-1]){
                 idx = i; //idx mein i store ker liye
                 break;
