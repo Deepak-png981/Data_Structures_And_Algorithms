@@ -15,7 +15,9 @@ The distance is calculated as&nbsp;<strong>|i<sub>1</sub>&nbsp; - i<sub>2</sub>|
 0's at (0,0), (0,3), (1,2), (1,3), (2,0) and
 (2,1) are at a distance of 1 from 1's at (0,1),
 (0,2), (0,2), (2,3), (1,0) and (1,1)
-respectively.</span>
+respectively.
+<img alt="" src="https://media.geeksforgeeks.org/wp-content/uploads/20221107154436/WhatsAppImage20221107at34408PM.jpeg" style="height:168px; width:198px"></span>
+
 </pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
@@ -28,7 +30,9 @@ respectively.</span>
 1 0 0
 0's at (0,1), (1,2), (2,1) and (2,2) are at a 
 distance of 1, 1, 1 and 2 from 1's at (0,0),
-(0,2), (2,0) and (1,1) respectively.</span>
+(0,2), (2,0) and (1,1) respectively.
+<img alt="" src="https://media.geeksforgeeks.org/wp-content/uploads/20221107155306/WhatsAppImage20221107at35249PM.jpeg" style="height:153px; width:152px"></span>
+
 </pre>
 
 <p>&nbsp;</p>
