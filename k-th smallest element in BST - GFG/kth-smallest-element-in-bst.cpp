@@ -92,7 +92,7 @@ struct Node {
 */
 
 class Solution {
-  public:
+ public:
     void inorder(Node* root , int &k , int &ans){
         if(root == NULL)
             return;
