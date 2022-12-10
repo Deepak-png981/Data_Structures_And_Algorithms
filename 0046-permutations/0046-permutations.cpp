@@ -1,20 +1,29 @@
 class Solution {
 public:
-    vector<vector<int>>result;
-    void helper(vector<int>& nums , int i , int n){
-        if(i == n){
-            result.push_back(nums);
-            return ;
+    void recursion(vector<int>&nums , vector<int>&ds , int map[] , vector<vector<int>>&ans){
+        if(ds.size() == nums.size())
+        {
+            ans.push_back(ds);
+            return;
         }
-        for(int j = i; j<=n; j++){
-            swap(nums[j] , nums[i]);
-            helper(nums , i + 1 , n);
-            swap(nums[j] , nums[i]);
-            
-        } return;
+        for(int i = 0; i < nums.size() ;i++){
+            if(!map[i]){
+                ds.push_back(nums[i]);
+                map[i] = 1;
+                recursion(nums , ds, map , ans);
+                map[i] = 0;
+                ds.pop_back();
+            }
+        }
+        return;
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        helper(nums , 0 , nums.size() - 1);
-        return result;
+        vector<int>ds;
+        int n= nums.size();
+        int map[n];
+        for(int i = 0; i<n; i++)    map[i] = 0;
+        vector<vector<int>>ans;
+        recursion(nums, ds , map , ans);
+        return ans;
     }
 };
