@@ -1,20 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    //  void f(vector<int> nums,int i,int n)
-    // {
-    //     if(i==n)
-    //     {
-    //         ans.push_back(nums);
-    //         return ;
-    //     }
-    //     for(int j=i;j<=n;j++)
-    //     {
-    //         if(j!=i && nums[i]==nums[j]) continue;
-    //         swap(nums[i],nums[j]);
-    //         f(nums,i+1,n);
-    //     }
-    // }
     void f(vector<int>nums , int i , int n){
         if(i == n)
         {
