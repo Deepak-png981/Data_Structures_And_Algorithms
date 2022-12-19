@@ -12,10 +12,10 @@
 <span style="font-size:18px"><strong>Output:</strong></span>
 <span style="font-size:18px">1</span>
 <span style="font-size:18px"><strong>Explanation:</strong></span>
-<span style="font-size:18px">grid[][] = {{<span style="color:#FF0000">1</span>, <span style="color:#FF0000">1</span>, 0, 0, 0}, 
-&nbsp;           {<span style="color:#FF0000">1</span>, <span style="color:#FF0000">1</span>, 0, 0, 0}, 
-&nbsp;           {0, 0, 0, <span style="color:#FF0000">1</span>, <span style="color:#FF0000">1</span>}, 
-&nbsp;           {0, 0, 0, <span style="color:#FF0000">1</span>, <span style="color:#FF0000">1</span>}}
+<span style="font-size:18px">grid[][] = {{<span style="color:#ff0000">1</span>, <span style="color:#ff0000">1</span>, 0, 0, 0}, 
+&nbsp;           {<span style="color:#ff0000">1</span>, <span style="color:#ff0000">1</span>, 0, 0, 0}, 
+&nbsp;           {0, 0, 0, <span style="color:#ff0000">1</span>, <span style="color:#ff0000">1</span>}, 
+&nbsp;           {0, 0, 0, <span style="color:#ff0000">1</span>, <span style="color:#ff0000">1</span>}}
 Same colored islands are equal.
 We have 2 equal islands, so we 
 have only 1 distinct island.</span>
@@ -32,10 +32,10 @@ have only 1 distinct island.</span>
 <span style="font-size:18px"><strong>Output:</strong></span>
 <span style="font-size:18px">3</span>
 <span style="font-size:18px"><strong>Explanation:
-</strong>grid[][] = {{<span style="color:#FF0000">1</span>, <span style="color:#FF0000">1</span>, 0, <span style="color:#00FF00">1</span>, <span style="color:#00FF00">1</span>}, 
-&nbsp;           {<span style="color:#FF0000">1</span>, 0, 0, 0, 0}, 
-&nbsp;           {0, 0, 0, 0, <span style="color:#0000CD">1</span>}, 
-&nbsp;           {<span style="color:#00FF00">1</span>, <span style="color:#00FF00">1</span>, 0, <span style="color:#0000FF">1</span>, <span style="color:#0000FF">1</span>}}</span>
+</strong>grid[][] = {{<span style="color:#ff0000">1</span>, <span style="color:#ff0000">1</span>, 0, <span style="color:#00ff00">1</span>, <span style="color:#00ff00">1</span>}, 
+&nbsp;           {<span style="color:#ff0000">1</span>, 0, 0, 0, 0}, 
+&nbsp;           {0, 0, 0, 0, <span style="color:#0000cd">1</span>}, 
+&nbsp;           {<span style="color:#00ff00">1</span>, <span style="color:#00ff00">1</span>, 0, <span style="color:#0000ff">1</span>, <span style="color:#0000ff">1</span>}}</span>
 <span style="font-size:18px">Same colored islands are equal.
 We have 4 islands, but 2 of them
 are equal, So we have 3 distinct islands.</span>
