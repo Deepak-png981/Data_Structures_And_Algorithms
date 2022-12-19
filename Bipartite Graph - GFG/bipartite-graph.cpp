@@ -5,45 +5,39 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 private:
-    bool checkComponent(int start , int v, vector<int>adj[] , vector<int>&color){
+    bool dfs(int start , int V , vector<int>adj[] , int color[] ){
+        color[start] = 0;
         queue<int>q;
-	    q.push(start);
-	    
-	    color[start] = 0;
-	    while(!q.empty()){
-	        int node = q.front();
-	        q.pop();
-	        
-	        
-	        for(auto it : adj[node]){
-	            //if the adjacent node is not yet coloured I am going 
-	            //to give it a color
-	            if(color[it] == -1)
-	            {
-	                color[it] = 1 - color[node];
-	                q.push(it);
-	            }
-	            //if the color of adjacent node and the node
-	            //is same then it is not a bipartite graph
-	            else if(color[it] == color[node]){
+        q.push(start);
+        while(!q.empty()){
+            int front = q.front();
+            q.pop();
+            for(auto it : adj[front]){
+                //nodes ka color same nhi hai to aleternate colors lagate ja rhe hai bro
+                if(color[it] == -1){
+                    color[it] = !color[front];
+                    q.push(it);
+                }
+                else if(color[it] == color[front]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+public:
+	bool isBipartite(int V, vector<int>adj[]){
+	    int color[V];
+	    for(int i = 0; i<V; i++){
+	        color[i] = -1;
+	    }
+	    for(int i = 0; i<V; i++){
+	        if(color[i] == -1){
+	            if(dfs(i , V, adj , color) == false)
 	                return false;
-	            }
 	        }
 	    }
 	    return true;
-    }
-public:
-	bool isBipartite(int v, vector<int>adj[]){
-	    vector<int>color(v , 0);
-	    for(int i = 0; i<v; i++)
-	        color[i] = -1;
-	    for(int i = 0; i<v; i++){
-	        if(color[i] == -1){
-	            if(checkComponent(i , v , adj , color) == false)
-	            return false;
-	        }
-	    }
-	    return true; 
 	}
 
 };
