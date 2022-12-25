@@ -9,44 +9,40 @@ using namespace std;
 // User function Template for C++
 
 class Solution {
-private:
-    bool dfs(int node , vector<int>&vis ,vector<int>& pathvis , vector<int> adj[] ,
-            vector<int>&check){
-        vis[node] = 1;
-        pathvis[node] = 1;
-        check[node] = 0;
-        for(auto it : adj[node]){
-            if(!vis[it]){
-                if(dfs(it , vis , pathvis , adj , check) == true){
-                    check[node] = 0;
-                    return true;
-                }
-            }else if(pathvis[it] == 1){
-                check[node] = 0;
-                return true;
-            }
-        }
-        check[node] = 1;
-        pathvis[node] = 0;
-        return false;
-    }
   public:
     vector<int> eventualSafeNodes(int V, vector<int> adj[]) {
-        vector<int> vis ( V , 0);
-        vector<int> pathvis ( V , 0);
-        vector<int> check(V , 0);
+        vector<int>adjRev[V];
         for(int i = 0; i<V; i++){
-            if(!vis[i]){
-                dfs( i , vis , pathvis , adj , check);
+            //yaha per node i->it per hai
+            for(auto it : adj[i]){
+                adjRev[it].push_back(i);
             }
         }
-        vector<int>safenode;
-        for(int i = 0 ; i<V; i++){
-            if(check[i] == 1)
-                safenode.push_back(i);
+        int indegree[V] = {0};
+        for(int i = 0; i<V; i++){
+            for(auto it : adjRev[i]){
+                indegree[it]++;
+            }
         }
-        return safenode;
-    }
+        queue<int>q;
+        for(int i = 0; i<V; i++){
+            if(indegree[i] == 0)
+                q.push(i);
+        }
+        vector<int>topo;
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            topo.push_back(node);
+            for(auto it : adjRev[node]){
+                indegree[it]--;
+                if(indegree[it] == 0)
+                    q.push(it);
+            }
+        }
+        sort(topo.begin() , topo.end());
+        return topo;
+    }  
 };
 
 
