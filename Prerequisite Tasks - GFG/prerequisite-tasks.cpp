@@ -25,18 +25,18 @@ public:
 	        if(indegree[i] == 0)
 	            q.push(i);
 	    }
-	    vector<int>topo;
+	    int count = 0;
 	    while(!q.empty()){
 	        int node = q.front();
 	        q.pop();
-	        topo.push_back(node);
+	        count++;
 	        for(auto it : adj[node]){
 	            indegree[it]--;
 	            if(indegree[it] == 0)
 	                q.push(it);
 	        }
 	    }
-	    if(topo.size() == N)    return true;
+	    if(count == N)    return true;
 	    return false;
 	    
 	}
