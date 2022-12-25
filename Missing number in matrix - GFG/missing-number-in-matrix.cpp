@@ -5,7 +5,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
 public:
-      bool row(vector<vector<int> >& a, int n){
+     bool row(vector<vector<int> >& a, int n){
         int r1=0;
         for(int i=0;i<n;i++){
             r1+=a[0][i];
