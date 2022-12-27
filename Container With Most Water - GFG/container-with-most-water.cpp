@@ -10,14 +10,13 @@ using namespace std;
 
 long long maxArea(long long arr[], int len)
 {
-    
+    // Your code goes here
     long long area = 0 , left = 0 , right = len - 1;
     for(long long i = 0; i<len; i++){
         area = max( area , min( arr[left] , arr[right] ) * ( right - left ) );
         ( arr[left] > arr[right] ) ? right-- : left++ ;
     }
     return area;
-    
 }
 
 //{ Driver Code Starts.
