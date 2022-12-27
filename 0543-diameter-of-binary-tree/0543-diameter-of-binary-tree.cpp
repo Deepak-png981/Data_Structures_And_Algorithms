@@ -10,22 +10,30 @@
  * };
  */
 class Solution {
-private: 
-    int height(TreeNode* root){
-        if(root == NULL)
-            return 0;
-        int l = height(root->left);
-        int r = height(root->right);
-        return max(l , r) + 1;
+private:
+    // in pair diameter height
+    pair<int,int> heightD(TreeNode* root){
+        if(root == NULL){
+            pair<int , int> p ;
+            p.first = 0;
+            p.second = 0;
+            return p;
+        }
+        pair<int , int>left = heightD(root->left);
+        pair<int , int>right = heightD(root->right);
+        
+        int op1 = left.first;
+        int op2 = right.first;
+        int op3 = left.second + right.second;
+        
+        pair<int, int>p;
+        p.first = max(op1 , max(op2 , op3));
+        p.second = max(left.second , right.second) + 1;
+        return p;
     }
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        if(root == NULL)
-            return 0;
-        int op1 = diameterOfBinaryTree(root->left);
-        int op2 = diameterOfBinaryTree(root->right);
-        int op3 = height(root -> left) + height(root->right) ;
-        
-        return max(op1 , max(op2 , op3));
+        pair<int , int>ans = heightD(root);
+        return ans.first;
     }
 };
