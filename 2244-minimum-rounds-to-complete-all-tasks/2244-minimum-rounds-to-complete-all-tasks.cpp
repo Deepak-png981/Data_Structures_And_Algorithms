@@ -19,16 +19,9 @@ public:
             if(curr == 1){
                 return -1;
             }
-            if(curr %3 == 0){
-                rounds += curr/3;
-            }
-            else if(curr % 3 == 2){
-                rounds += curr/3;
+            rounds += curr/3;
+            if(curr % 3 != 0)
                 rounds++;
-            }else{
-                rounds += curr/3;
-                rounds++;
-            }
             
         }
         return rounds;
