@@ -1,17 +1,15 @@
 class Solution {
 public:
-    int maxIceCream(vector<int>& vec, int coins) {
-        sort(vec.begin(), vec.end());
-        
+    int maxIceCream(vector<int>& costs, int coins) {
+        sort(costs.begin() , costs.end());
         int count = 0;
-        
-        for(auto it : vec){
+        for(auto it : costs){
             if(coins - it < 0)
                 return count;
             else{
                 coins -= it;
                 count++;
-            }
+            }     
         }
         return count;
     }
