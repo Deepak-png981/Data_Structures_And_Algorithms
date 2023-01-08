@@ -7,24 +7,24 @@ class Solution
             if (n <= 2)
                 return n;
 
-            int maxi = 2;
-//             [[1,1],[2,2],[3,3]]
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n; j++)
-                {
-                    int count = 2;
-                    for (int k = 0; k < n; k++)
-                    {
-                        if (k != i && k != j)
-                        {
-                            if ((points[j][1] - points[i][1]) *(points[i][0] - points[k][0]) == (points[i][1] - points[k][1]) *(points[j][0] - points[i][0]))
-                                count++;
-                        }
+            int ans = 0;
+            for(auto it1 : points){
+                unordered_map<double , int> map;
+                double x1 = it1[0] , y1 = it1[1];
+                for(auto it2 : points){
+                    if(it1 == it2)
+                        continue;
+                    double x2 = it2[0] , y2 = it2[1];
+                    double slope;
+                    if(x2 - x1 == 0)
+                        slope = INT_MAX;
+                    else{
+                        slope = (y2-y1)/(x2-x1);
                     }
-                    maxi = max(maxi, count);
+                    map[slope]++;
+                    ans = max(ans , map[slope]);
                 }
-            }
-            return maxi;
+            }           
+            return ans+1;
         }
 };
