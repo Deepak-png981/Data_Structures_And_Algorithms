@@ -10,6 +10,7 @@ class Solution {
   public:
     long long countPairs(int n, int arr[], int k) {
         // code here
+        // code here
         long long count = 0;
         unordered_map<int , int>mp;
         for(int i=0;i<n;i++){
