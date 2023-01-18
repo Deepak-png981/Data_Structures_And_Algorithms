@@ -58,7 +58,7 @@ class Solution
         if(slow != fast)
             return -1;
         if(slow == head){
-            fast = head;
+            // fast = head;
             while( fast->next != slow){
                 fast = fast->next;
             }
