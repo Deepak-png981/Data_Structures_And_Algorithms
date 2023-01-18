@@ -59,9 +59,9 @@ class Solution
             return -1;
         if(slow == head){
             // fast = head;
-            while( fast->next != slow){
-                fast = fast->next;
-            }
+            // while( fast->next != slow){
+            //     fast = fast->next;
+            // }
             return slow->data;
         }
         else if( slow == fast){
