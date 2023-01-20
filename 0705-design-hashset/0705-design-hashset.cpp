@@ -2,9 +2,9 @@ class Node{
     public:
     int data;
     Node* next;
-    Node(int data){
-        this->data = data;
-        next = NULL;
+    Node(int val){
+        data = val;
+        next =NULL;
     }
 };
 class MyHashSet {
@@ -15,30 +15,30 @@ public:
     }
     
     void add(int key) {
-        Node* curr = head;
+        Node*curr = head;
         while(curr != NULL){
-            if(curr->data == key)
+            if(curr -> data == key)
                 return;
-            curr = curr -> next;
+            curr = curr->next;
         }
         Node* newnode = new Node(key);
-        newnode->next = head;
+        newnode -> next = head;
         head = newnode;
-            
     }
     
     void remove(int key) {
         Node* curr = head , *prev = NULL;
         while(curr != NULL){
-            if(curr -> data == key)
+            if(curr->data == key)
                 break;
             prev = curr;
             curr = curr->next;
         }
-        if(!curr)
-            return;
-        if(!prev)
+        if(curr == NULL)    return;
+        if(prev == NULL) {
             head = head->next;
+            return;
+        }
         else
             prev->next = curr->next;
     }
