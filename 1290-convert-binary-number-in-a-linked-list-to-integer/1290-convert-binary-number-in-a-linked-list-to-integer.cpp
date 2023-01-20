@@ -17,10 +17,11 @@ public:
             len++;
             temp = temp->next;
         }
-        temp = head;
+        len = len - 1;
         int ans = 0;
+        temp = head;
         while(temp != NULL){
-            ans += temp->val * pow(2 , len-1);
+            ans += temp->val * pow(2 , len);
             len--;
             temp = temp->next;
         }
