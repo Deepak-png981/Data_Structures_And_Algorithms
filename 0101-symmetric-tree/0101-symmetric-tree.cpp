@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool isSymmetric(TreeNode* root) {
+     bool isSymmetric(TreeNode* root) {
         if(!root)
             return true;
         TreeNode* left , *right;
