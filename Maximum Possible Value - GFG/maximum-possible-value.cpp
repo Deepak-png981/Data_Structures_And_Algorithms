@@ -8,21 +8,21 @@ using namespace std;
 class Solution {
   public:
     long long maxPossibleValue(int N,vector<int> A, vector<int> B) {
-        long long len , count , mn  = INT_MAX , ans=0, sticks = 0;
-        for(int i = 0; i<N; i++){
+        long long len , count , mn = INT_MAX , ans = 0 , sticks = 0;
+        for(int i = 0; i< N; i++){
             len = A[i];
             count = B[i];
-            if(count & 1 > 0){
+            //to find whether count is odd or not
+            if(count & 1 > 0)
                 count = count - 1;
-            }
             if(count >= 2){
-                mn = min(len , mn);
+                mn = min(mn , len);
             }
             ans += (len * count);
             sticks += count;
         }
-        if(sticks % 4 != 0){
-            ans -= 2 * mn;
+        if(sticks%4 != 0){
+            ans -= ( 2 * mn);
         }
         return ans;
     }
