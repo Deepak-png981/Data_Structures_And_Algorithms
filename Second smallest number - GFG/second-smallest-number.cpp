@@ -9,34 +9,50 @@ using namespace std;
 class Solution{   
   public:
     string secondSmallest(int S, int D){
-        if(S == 1 or D == 1) return "-1";
-        if(S >= 9*D) return "-1";
-        string ans(D , '0');
+        if(S == 1 or D == 1 or S >= 9*D){
+            return "-1";
+        }
+        string ans (D , '0');
         int sum = S;
         int last = -1;
+        // 1 7 8
+        // 0 1 2 ->index
         for(int i = D - 1; i >= 0; i--){
             if(sum > 9){
                 ans[i] = '9';
                 sum -= 9;
-            }else if(sum > 0){
+            }
+            else if(sum > 0){
                 ans[i] = '0' + sum;
-                last = i;
+                last = i;  
                 sum = 0;
-            }else{
+            }
+            else{
                 ans[i] = '0';
             }
         }
+        //checking for the zeroth index
         if(ans[0] == '0'){
             ans[0] = '1';
             ans[last] -= 1;
         }
-        int l = D - 2;
-        while(ans[l] == '9') l--;
-        ans[l] += 1;
-        ans[l+1] -= 1;
+        //last second process
+        int LASTsecond = D - 2;
+        while(ans[LASTsecond] == '9'){
+            LASTsecond--;
+        }
+        ans[LASTsecond] += 1;
+        ans[LASTsecond + 1] -= 1;
         return ans;
+        
+        
     }
 };
+
+
+
+
+
 
 //{ Driver Code Starts.
 
