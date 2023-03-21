@@ -14,7 +14,7 @@ public:
         int mn = INT_MAX;
         for(int i = 0; i<N; i++){
             int temp = abs( cur - pos[i] ) * time[i];
-            mn = min(temp , mn);
+            mn = min(mn , temp);
         }
         return mn;
     }
