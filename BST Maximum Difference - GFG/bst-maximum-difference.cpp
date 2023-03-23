@@ -36,12 +36,12 @@ Node *insert(Node *tree, int val) {
 
 class Solution{
 private:
-    void solve(Node* curr, int sum , int pathsum , int &res){
+    void solve(Node* curr , int sum , int pathsum ,int &res ){
         if(curr == NULL)
+        return;
+        if(curr->left == NULL and curr ->right == NULL){
+            res = max( res , sum - (pathsum + curr->data) );
             return;
-        if(curr->left == NULL and curr->right == NULL){
-            res = max(res , sum - (pathsum + curr->data));
-            return ;
         }
         solve(curr->left , sum , pathsum + curr->data , res);
         solve(curr->right , sum , pathsum + curr->data , res);
@@ -51,7 +51,7 @@ public:
         int sum = 0;
         Node* curr = root;
         while(curr != NULL){
-            if(curr->data == target)
+            if(curr ->data == target)
                 break;
             else if(curr->data < target){
                 sum += curr->data;
@@ -61,17 +61,19 @@ public:
                 curr = curr->left;
             }
         }
-        if(curr == NULL)
+        if(curr == NULL){
             return -1;
-        else{
+        }else{
             int res = INT_MIN;
-            if(curr->left == NULL and curr -> right == NULL){
+            if(curr -> right == NULL and curr->left == NULL){
                 return sum;
             }
-            if(curr -> left != NULL)
-                solve(curr -> left , sum , 0 , res);
-            if(curr->right != NULL)
-                solve(curr->right , sum , 0 , res);
+            if(curr->left != NULL){
+                solve(curr->left ,sum , 0 , res );
+            }
+            if(curr -> right != NULL){
+                solve(curr->right ,sum , 0 , res );
+            }
             return res;
         }
     }
