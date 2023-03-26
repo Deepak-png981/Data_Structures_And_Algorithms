@@ -12,13 +12,14 @@ class Solution {
         vector<bool>vis(leaves + 1 , false);
         for(int i = 0; i<N; i++){
             int frog = frogs[i];
-            if(frog <= leaves and vis[frog] == true )
+            if(frog <= leaves and vis[frog] == true)
                 continue;
-            for(int j = frog; j<= leaves ; j += frog)
+            for(int j = frog; j<=leaves; j += frog){
                 vis[j] = true;
+            }
         }
         int count = 0;
-        for(int i = 1; i<=leaves;i++)
+        for(int i = 1; i<= leaves; i++)
             if(vis[i] == false)
                 count++;
         return count;
