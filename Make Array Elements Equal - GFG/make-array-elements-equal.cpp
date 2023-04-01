@@ -10,7 +10,7 @@ using namespace std;
 class Solution {
   public:
     long long int minOperations(int N) {
-        long long int  x = N /2;
+       long long int  x = N /2;
         long long int  ans = 0;
         if(N%2 != 0){
             ans = (x* ( x + 1));
