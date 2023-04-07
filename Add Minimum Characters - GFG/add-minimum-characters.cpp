@@ -9,28 +9,32 @@ using namespace std;
 
 class Solution{  
 private:
-    bool isPalindrone(string str){
-        int i = 0 , j = str.length()-1;
-        while(i < j){
-            if(str[i] != str[j])
-                return false;
-            else{
-                i++;
-                j--;
-            }
+bool isPalindrone(string str){
+    int i = 0, j = str.length() - 1;
+    while(i < j){
+        if(str[i] != str[j])
+            return false;
+        else{
+            i++;
+            j--;
         }
-        return true;
     }
+    return true;
+}
 public:
     int addMinChar(string str){    
         if(isPalindrone(str))
             return 0;
-        for(int i = str.size() - 1; i>= 0; i--){
-            if(isPalindrone(str.substr(0 , i))){
+        for(int i = str.length() - 1; i>=0; i--){
+            if(isPalindrone(str.substr(0,i))){
                 return str.length() - i;
             }
         }
+        
         return str.length();
+        //IOEP
+        //PEOIOEP
+        
     }
 };
 
