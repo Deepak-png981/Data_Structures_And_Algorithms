@@ -20,9 +20,8 @@ public:
 */
 
 class Solution {
-    
-public:
     unordered_map<Node* , Node*>mp;
+public:
     Node* cloneGraph(Node* node) {
         if(node == NULL)
             return NULL;
@@ -38,7 +37,7 @@ public:
                     mp[adj] = new Node(adj->val , {});
                     q.push(adj);
                 }
-                mp[frontnode]->neighbors.push_back(mp[adj]);
+                mp[frontnode] -> neighbors.push_back(mp[adj]);
             }
         }
         return mp[node];
