@@ -1,39 +1,38 @@
 class MyQueue {
-private:
-    stack<int> in_;
-    stack<int> out_;
-        
+    stack<int>input , output;
 public:
-    MyQueue() = default;
+    MyQueue() {
+        
+    }
     
     void push(int x) {
-        in_.push(x);
+        input.push(x);
     }
     
     int pop() {
-        move_to_out();
-        const int ans = out_.top();
-        out_.pop();
-        return ans;
+        if(output.empty()){
+            while(!input.empty()){
+                output.push(input.top());
+                input.pop();
+            }
+        }
+        int val = output.top();
+        output.pop();
+        return val;
     }
     
     int peek() {
-        move_to_out();
-        return out_.top();        
+        if(output.empty()){
+            while(!input.empty()){
+                output.push(input.top());
+                input.pop();
+            }
+        }
+        return output.top();
     }
     
     bool empty() {
-        return ::empty(in_) && ::empty(out_);
-    }
-    
-private:
-    void move_to_out() {
-        if (!::empty(out_)) return;
-        
-        while (!::empty(in_)) {
-            out_.push(in_.top());
-            in_.pop();
-        }
+        return (input.empty() and output.empty());
     }
 };
 
