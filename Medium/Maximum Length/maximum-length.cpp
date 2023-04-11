@@ -10,7 +10,7 @@ using namespace std;
 class Solution {
 public:
     int solve(int a, int b, int c) {
-        vector<int> x = {a, b, c};
+       vector<int> x = {a, b, c};
         sort(x.begin(), x.end());
         
         if(x[2]<= 2*(x[0]+x[1]-1)+4 )
