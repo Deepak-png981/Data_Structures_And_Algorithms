@@ -1,14 +1,22 @@
 class Solution {
 public:
     string removeStars(string s) {
-        vector<int>res;
-        for(auto it : s){
-            if(it != '*')
-                res.push_back(it);
-            else
-                res.pop_back();
+        vector<int>ans;
+        for(char it : s){
+            if(it != '*'){
+                ans.push_back(it);
+            }
+            else{
+                ans.pop_back();
+            }
         }
-        string result(res.begin() , res.end());
+        string result(ans.begin() , ans.end());
         return result;
     }
 };
+
+//leet**cod*e
+//lecoe
+
+
+
