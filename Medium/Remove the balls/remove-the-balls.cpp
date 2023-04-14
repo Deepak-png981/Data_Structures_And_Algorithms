@@ -10,20 +10,20 @@ using namespace std;
 class Solution {
   public:
     int finLength(int N, vector<int> color, vector<int> radius) {
-        stack<pair<int ,int>>st;
+        stack<pair<int , int>>st; //first = color and second = radius
         st.push({color[0] , radius[0]});
-        for(int i = 1; i<N;i++){
+        for(int i = 1; i<N; i++){
             if(!st.empty()){
                 auto it = st.top();
-                int col = it.first , rad = it.second;
+                int col = it.first;
+                int rad = it.second;
                 if(color[i] == col and radius[i] == rad){
                     st.pop();
-                }
-                else
+                }else
                     st.push({color[i] , radius[i]});
-            }
-            else
+            }else{
                 st.push({color[i] , radius[i]});
+            }
         }
         return st.size();
     }
