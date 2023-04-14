@@ -18,8 +18,9 @@ class Solution{
         st.push(-1);
         for(int i = n-1; i>=0; i--){
             int curr = arr[i];
-            while(st.top() >= curr )
+            while(st.top() >= curr){
                 st.pop();
+            }
             nse[i] = st.top();
             st.push(curr);
         }
