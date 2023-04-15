@@ -1,19 +1,18 @@
 class StockSpanner {
 public:
     StockSpanner() {
-      
-    }
-    
-      stack<pair<int, int>> stak;// store data for other days
-    int next(int price) {
         
-        int span = 1;
-        while (!stak.empty() && stak.top().second <= price) {
-            span= span+ stak.top().first;
-            stak.pop();
+    }
+    stack<pair<int , int>>st;
+    int next(int price) {
+        int count = 0;
+        while(!st.empty() and st.top().first <= price){
+            count += st.top().second;
+            st.pop();
         }
-        stak.push({span,price});
-        return span;
+        count++;
+        st.push({price , count});
+        return count;
     }
 };
 
