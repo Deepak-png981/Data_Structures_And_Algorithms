@@ -1,8 +1,8 @@
 class Solution {
 public:
     int numberOfSteps(int n) {
-        if(n == 0 )
-            return 0;
+        if(n == 0)
+            return n;
         vector<int>dp( n + 1);
         dp[0] = 0;
         dp[1] = 1;
