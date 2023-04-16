@@ -3,7 +3,7 @@ public:
     int numberOfSteps(int n) {
         if(n == 0)
             return n;
-        vector<int>dp( n + 1);
+        vector<int>dp( n + 1 , INT_MAX);
         dp[0] = 0;
         dp[1] = 1;
         for(int i = 2; i<=n; i++){
