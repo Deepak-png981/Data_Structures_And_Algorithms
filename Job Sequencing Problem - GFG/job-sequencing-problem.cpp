@@ -46,6 +46,7 @@ class Solution
         while(pq.size()) b += pq.top(), pq.pop();
         
         return {a, b};
+        
     } 
 };
 
