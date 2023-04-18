@@ -83,8 +83,8 @@ public:
 //User function Template for C++
 
 class Solution {
-    public:
-bool isBst(Node* root,int &prev,int &sum,int &cnt){
+public:
+    bool isBst(Node* root,int &prev,int &sum,int &cnt){
         if(root==NULL){
             return  true;
         }
