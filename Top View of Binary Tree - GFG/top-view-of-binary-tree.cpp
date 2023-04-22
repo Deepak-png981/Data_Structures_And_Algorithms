@@ -107,8 +107,8 @@ class Solution
         vector<int>ans;
         if(root == NULL)
             return ans;
-        map<int , int>mp; // first-> line , second->node->val
-        queue<pair<Node* , int>>q;
+        map<int , int>mp; // first-> linenumber , second -> node->data
+        queue<pair<Node* , int>>q; //first->node , second->line
         q.push({root , 0});
         while(!q.empty()){
             Node* node = q.front().first;
@@ -117,16 +117,20 @@ class Solution
             if(mp.find(line) == mp.end()){
                 mp[line] = node->data;
             }
-            if(node->left != NULL)
+            if(node->left != NULL){
                 q.push({node->left , line - 1});
+            }
             if(node->right != NULL){
                 q.push({node->right , line + 1});
             }
         }
+        
         for(auto it : mp){
             ans.push_back(it.second);
         }
         return ans;
+        
+        
     }
 
 };
