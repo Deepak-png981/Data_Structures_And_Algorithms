@@ -14,7 +14,7 @@ class Solution
 public:
     vector<int> nearestSmallerTower(vector<int> arr)
     {
-        int n = arr.size();
+          int n = arr.size();
         stack<int> st;
         vector<int> ans(n);
         for(int i = 0; i<n; i++){
