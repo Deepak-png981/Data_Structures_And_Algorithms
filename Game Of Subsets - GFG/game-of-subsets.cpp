@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution{
 public:
-    int goodSubsets(vector<int> &arr, int n){
+   int goodSubsets(vector<int> &arr, int n){
     // Code here
     long long mod = 1e9 + 7;
     vector<int> cnt(31, 0);
