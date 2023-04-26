@@ -11,18 +11,21 @@ using namespace std;
 class Solution{
     public:
     bool is_possible_to_get_seats(int n, int m, vector<int>& seats){
+        //first case
         if(seats[0] == 0 and seats[1] == 0){
             seats[0] = 1;
             n--;
         }
-        for(int i = 1; i<m-1; i++){
-            if(n == 0 )
+        //second case
+        for(int i = 1; i<m-1;i++){
+            if(n == 0)
                 return true;
-            if(seats[i] == 0 and seats[i-1] == 0 and  seats[i+1] == 0){
+            if(seats[i] == 0 and seats[i-1] == 0 and seats[i+1] == 0){
                 seats[i] = 1;
                 n--;
             }
         }
+        //third case
         if(seats[m-1] == 0 and seats[m-2] == 0)
         {
             seats[m-1] = 1;
