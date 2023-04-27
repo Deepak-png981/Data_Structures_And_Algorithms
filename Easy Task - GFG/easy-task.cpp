@@ -17,7 +17,7 @@ class Solution{
                 return i + 'a';
             }
         }
-        return '.';
+        return '/';
     }
 public:
     vector<char> easyTask(int n,string str,int q,vector<vector<string>> &queries){
