@@ -9,35 +9,37 @@ using namespace std;
 //User function Template for C++
 
 class Solution{
-    char solve(int freq[] , int k){
-        int count = 0; 
-        for(int i = 25; i>= 0; i--){
+public:
+// {{"2","1","3","1"}}
+//bdb
+//b = 2
+//d = 1
+    char solve(int freq[]  , int k){
+        int count = 0;
+        for(int i = 25; i>=0; i--){
             count += freq[i];
             if(count >= k){
                 return i + 'a';
             }
         }
-        return '.';
+        return '/';
     }
-public:
     vector<char> easyTask(int n,string str,int q,vector<vector<string>> &queries){
         vector<char>ans;
-        int len = queries.size();
-        for(int i = 0; i<len; i++){
+        for(int i = 0; i< queries.size(); i++){
             int qno = stoi(queries[i][0]);
             if(qno == 1){
-               int index = stoi(queries[i][1]);
-               char ch = queries[i][2][0];
-               str[index] = ch;
+                int index = stoi(queries[i][1]);
+                char ch = queries[i][2][0];
+                str[index] = ch;
             }else{
                 int left = stoi(queries[i][1]);
                 int right = stoi(queries[i][2]);
                 int k = stoi(queries[i][3]);
                 int freq[26] = {0};
-                
                 for(int j = left; j<=right; j++){
-                    int ele = str[j] - 'a';
-                    freq[ele]++;
+                    int ele = str[j] - 'a';   
+                    freq[ele]++; 
                 }
                 char ch = solve(freq , k);
                 ans.push_back(ch);
