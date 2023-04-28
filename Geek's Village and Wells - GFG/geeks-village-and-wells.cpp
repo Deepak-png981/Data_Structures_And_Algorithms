@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution{
 public:
-      vector<vector<int>> chefAndWells(int n,int m,vector<vector<char>> &c){
+     vector<vector<int>> chefAndWells(int n,int m,vector<vector<char>> &c){
         // Code here
         
         int dx[4] ={-1, 0, 1, 0 }; 
