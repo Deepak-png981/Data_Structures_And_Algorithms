@@ -11,16 +11,16 @@ using namespace std;
 class Solution{
 public:
     long long findNumber(long long N){
-        int arr[] = { 9 , 1 , 3 , 5 , 7 };
         long long curr = 1 , ans = 0;
+        int arr[] = { 9 , 1 , 3 , 5 , 7 };
         while(N){
             ans = arr[N%5] * curr + ans;
             if(N%5 == 0){
                 N = N/5 - 1;
             }else{
-                N/=5;
+                N = N/5;
             }
-            curr = curr*10;
+            curr = curr * 10;
         }
         return ans;
     }
