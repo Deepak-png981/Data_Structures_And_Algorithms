@@ -11,21 +11,31 @@ using namespace std;
 class Solution{
 public:
     int powerfullInteger(int n,vector<vector<int>> &intervals,int k){
-          map<int,int> mp;
-        int ans = -1;
-        for(auto &it:intervals)
-        {
-            mp[it[0]]+=1;
-            mp[it[1]+1]-=1;
+        map<int , int>mp; //index , and freq
+        for(auto it : intervals){
+            int left = it[0];
+            int right= it[1];
+            mp[left]++;
+            mp[right + 1]--;
         }
-        int count=0;
-        for(auto &it:mp)
-        {
-            count+=it.second;
-            if(count>=k) ans  = it.first;
-            else if(count-it.second>=k) ans = it.first-1;
+        int prefixSum = 0;
+        int ans = -1;
+        bool flag = false;
+        for(auto it : mp){
+            prefixSum += it.second; // calculating prefix sum 
+            if(prefixSum >= k){
+                ans = it.first;
+                flag = true;
+            }
+            else if( flag == true ){
+                ans = it.first - 1;
+                flag = false;
+            }else{
+                flag = false;
+            }
         }
         return ans;
+        
     }
 };
 
