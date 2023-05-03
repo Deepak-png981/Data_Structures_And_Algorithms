@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
 public:
     bool makePalindrome(int n,vector<string> &arr){
-         map<string,int> mp;
+          map<string,int> mp;
         map<string,int> mp2;
         for(int i=0;i<n;i++)
         {
