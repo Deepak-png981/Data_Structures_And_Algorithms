@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
 public:
     string stringMirror(string str){
-         // Code here
+        // Code here
     string res;
     res += str[0];
     
