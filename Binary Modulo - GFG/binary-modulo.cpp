@@ -11,7 +11,7 @@ class Solution{
     public:
         int modulo(string s,int m)
         {
-            long long n=s.length();
+             long long n=s.length();
             long long sum=0;
             long long base=1;
             long long power=0;
