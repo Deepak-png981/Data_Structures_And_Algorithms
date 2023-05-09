@@ -29,6 +29,4 @@ public:
             y += dc[di];
         }
     }
-    return ans;
-    }
-};
+    return ans;}};
