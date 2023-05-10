@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
 public:
     int totalCuts(int N,int K,vector<int> &A){
-        int count = 0;
+         int count = 0;
         int leftMax = A[0];
         vector<int> rightMins(N);
         rightMins[N-1] = A[N-1];
