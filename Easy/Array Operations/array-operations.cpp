@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
   public:
     int arrayOperations(int n, vector<int> &arr) {
-            int c=0;
+             int c=0;
         for(int i=0;i<n;i++)
         {
             if(arr[i]==0)
