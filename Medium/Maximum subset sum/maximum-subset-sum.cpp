@@ -31,7 +31,7 @@ public:
 class Solution {
 
   public:
-   long long solve(int n,vector<int>&A,int i,vector<int>&dp)
+    long long solve(int n,vector<int>&A,int i,vector<int>&dp)
   {
       if(i>=n)
       return 0;
