@@ -10,7 +10,7 @@ using namespace std;
 class Solution{
 public:
     int isPossible(int n, int m, string s){
-         int i=0, j=0, mini=0, minj=0, maxj=0, maxi=0;
+          int i=0, j=0, mini=0, minj=0, maxj=0, maxi=0;
         for(auto ch:s){
             if (ch=='L') j--;
             else if (ch=='R') j++;
