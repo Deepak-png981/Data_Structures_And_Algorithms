@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
   public:
     bool isStraightHand(int N, int groupSize, vector<int> &hand) {
-          multiset<int> s(hand.begin(),hand.end());
+           multiset<int> s(hand.begin(),hand.end());
         while(s.size()>0)
         {
             int x = *s.begin();
