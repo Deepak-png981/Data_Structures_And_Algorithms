@@ -30,8 +30,8 @@ public:
 // } Driver Code Ends
 class Solution {
   public:
-      int getMaximum(int N, vector<int> &arr) {
-          long long int s=0;
+    int getMaximum(int N, vector<int> &arr) {
+           long long int s=0;
         for(int i=0;i<N;i++){
             s+=arr[i];
         }
