@@ -5,40 +5,43 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-public:
-      void f(int ind,string s,int target,vector<string> &ans,string tmp,long long prev,long long res)
-  {
-      if(ind==s.size())
-      {
-          if(res==target)
-          ans.push_back(tmp);
-          
-          return;
-      }
-      string st="";
-      long long curr=0;
-      for(int i=ind;i<s.size();i++)
-      {
-          if(i>ind && s[ind]=='0')
-            break;
-          st+=s[i];
-          curr=curr*10+(s[i]-'0');
-          if(ind==0)
-          f(i+1,s,target,ans,tmp+st,curr,curr);
-          else
-          {
-              f(i+1,s,target,ans,tmp+"+"+st,curr,res+curr);
-              f(i+1,s,target,ans,tmp+"-"+st,-curr,res-curr);
-              f(i+1,s,target,ans,tmp+"*"+st,prev*curr,res-prev+prev*curr);
-          }
-      }
-      return;
-  }
+  private:
+    void dfs(int index , string s , int target , vector<string>&ans , string temp , long long prev ,
+    long long res){
+        //base case
+        if(index == s.size()){
+            if(res == target){
+                ans.push_back(temp);
+            }
+            return;
+        }
+        
+        string st = "";
+        long long curr = 0;
+        for(int j = index; j<s.size(); j++){
+            if(j > index and s[index] == '0'){
+                break;
+            }
+            st += s[j];
+            curr = curr * 10 + (s[j] - '0');
+            if(index == 0){
+                dfs(j + 1, s , target , ans , temp + st , curr , curr);
+            }
+            else{
+                 dfs(j + 1, s , target , ans , temp + "+" + st , curr , res + curr);
+                 dfs(j + 1, s , target , ans , temp + "-" +  st , -curr , res - curr);
+                 dfs(j + 1, s , target , ans , temp + "*" +  st , prev*curr , 
+                 res - prev + prev*curr);
+            }
+        } 
+    }
+  public:
+    
     vector<string> addOperators(string s, int target) {
-        vector<string> ans;
-        string tmp="";
-        long long prev=0;
-        f(0,s,target,ans,tmp,prev,0);
+        vector<string>ans;
+        string temp = "";
+        long long prev = 0;
+        dfs(0 , s , target , ans , temp , prev , 0);
         return ans;
     }
 };
