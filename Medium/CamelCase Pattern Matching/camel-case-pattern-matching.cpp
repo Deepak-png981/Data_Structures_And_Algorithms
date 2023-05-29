@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
   public:
     vector<string> CamelCase(int N, vector<string> Dictionary, string Pattern) {
-        vector<string>v;
+         vector<string>v;
         for(int i = 0 ; i<N; i++){
             string temp = "";
             for(int j = 0; j<Dictionary[i].size(); j++){
