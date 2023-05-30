@@ -4,37 +4,41 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
+    
 private:
-    int dx[4] = {0 , -1 , 0 , 1};
-    int dy[4] = {1 , 0 , -1 , 0};
     vector<vector<bool>>vis;
-    bool dfs(int x , int y , int index , int n , int m , string word , vector<vector<char>>&board){
-       if(index == word.length()){
-           return true;
-       }
-       vis[x][y] = 1;
-       for(int i = 0; i<4; i++){
-           int nx = x + dx[i];
-           int ny = y + dy[i];
-           if(nx >= 0 and nx < n and ny>=0 and ny <m and board[nx][ny] == word[index] and !vis[nx][ny]){
-               bool temp = dfs(nx , ny , index + 1 , n , m , word , board);
-               if(temp)
-                    return temp;
-           }
-       }
-       vis[x][y] = 0;
-       return false;
+    int dx[4] = { 0 , -1 , 0 , 1};
+    int dy[4] = {1 , 0 , -1 , 0};
+    bool dfs(int x , int y , int index , int n  , int m , string word , 
+    vector<vector<char>>& board){
+        //base case
+        if(index == word.length()){
+            return true;
+        }
+        vis[x][y] = true;
+        for(int i = 0; i<4 ;i++){
+            int newx = x + dx[i];
+            int newy = y + dy[i];
+            if(newx >= 0 and newx < n and newy >= 0 and newy < m and !vis[newx][newy] 
+                and board[newx][newy] == word[index]){
+                    bool temp = dfs(newx , newy , index + 1, n , m , word , board);
+                    if(temp == true)
+                        return true;
+                }
+        }
+        vis[x][y] = false;
+        return false;
+        
     }
-     
 public:
     bool isWordExist(vector<vector<char>>& board, string word) {
         int n = board.size();
         int m = board[0].size();
-        vis.resize( n , vector<bool>(m , 0));
-        for(int i = 0; i<n; i++){
-            for(int j = 0; j<m ; j++){
+        vis.resize(n , vector<bool>(m , 0));
+        for(int i= 0; i<n; i++){
+            for(int j = 0; j<m; j++){
                 if(board[i][j] == word[0]){
-                    bool ans = dfs(i , j , 1 , n , m , word , board );
+                    bool ans = dfs(i , j , 1 , n , m , word, board);
                     if(ans == true)
                         return true;
                 }
