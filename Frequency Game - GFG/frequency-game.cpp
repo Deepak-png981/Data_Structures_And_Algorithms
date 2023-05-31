@@ -11,18 +11,16 @@ using namespace std;
 class Solution{
 public:
     int LargButMinFreq(int arr[], int n) {
-        unordered_map<int , int>map;
-        for(int i = 0; i<n; i++)
-            map[arr[i]]++;
+        unordered_map<int , int>mp;
+        for(int i = 0; i<n; i++){
+            mp[arr[i]]++;
+        }
         int mn = INT_MAX , ans;
-        for(auto it : map)
-        {
-            if(mn > it.second)
-            {
-                ans = it.first;
+        for(auto it : mp){
+            if(mn > it.second){
                 mn = it.second;
-            }
-            else if(mn == it.second and it.first > ans){
+                ans = it.first;
+            }else if(mn == it.second and it.first > ans){
                 ans = it.first;
             }
         }
