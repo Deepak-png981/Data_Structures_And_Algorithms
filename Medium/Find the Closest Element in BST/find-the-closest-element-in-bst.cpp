@@ -34,7 +34,7 @@ struct Node {
 
 class Solution
 {
-    private:
+     private:
     void solve(Node* root , int &mn , int k){
         if(!root)
             return;
