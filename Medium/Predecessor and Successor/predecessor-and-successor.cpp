@@ -44,18 +44,15 @@ class Solution
         if(root == NULL)
             return;
         if(key == root->key){
-            findPreSuc(root->left , pre , suc , key);
-            findPreSuc(root -> right , pre , suc , key);
-        }
-        else if(key> root->key){
+            findPreSuc(root -> left , pre , suc , key);
+            findPreSuc(root->right , pre , suc , key);
+        }else if(key > root->key){
             pre = root;
             findPreSuc(root->right , pre , suc , key);
-        }
-        else{
+        }else{ // key < root->key
             suc = root;
             findPreSuc(root->left , pre , suc , key);
         }
-        
     }
 };
 
