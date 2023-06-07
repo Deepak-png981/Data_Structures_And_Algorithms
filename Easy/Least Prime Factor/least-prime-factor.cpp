@@ -7,20 +7,24 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-       vector<int> leastPrimeFactor(int n) {
-        vector<int>ans;
-        ans.push_back(INT_MAX);//Here you can push any number
-        for(int i=1;i<=n;i++){
-            int x=i;
-            for(int j=2;j<=i;j++){
-                if(i%j==0){
-                    x=j;
-                    break;
+    vector<int> leastPrimeFactor(int n) {
+        vector<int>least_prime(n + 1 , 0);
+        //we need to print 1 for 1
+        least_prime[1] = 1;
+        for(int i = 2; i<=n; i++){
+            //if the lp[i] == 0
+            //it means it is empty , so we are going store i here
+            if(least_prime[i] == 0){
+                least_prime[i] = i;
+                //multiples
+                for(int j = 2*i; j<=n; j+=i){
+                    if(least_prime[j] == 0){
+                        least_prime[j] = i;
+                    }
                 }
             }
-            ans.push_back(x);
         }
-    return ans;
+        return least_prime;
     }
 };
 
