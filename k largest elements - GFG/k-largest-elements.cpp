@@ -9,14 +9,13 @@ using namespace std;
 class Solution{
 public:	
 	vector<int> kLargest(int arr[], int n, int k) {
-	    // code here
-	    sort(arr, arr + n);
-	    vector<int> vv;
-	    for(int i = n - 1; i >= n - k; i--)
-	    {
-	        vv.push_back(arr[i]);
+	    sort(arr , arr + n);
+	    vector<int>ans;
+	    for(int i = n-1; i>=n-k; i--){
+	        ans.push_back(arr[i]);
 	    }
-	    return vv;
+	    return ans;
+	  
 	}
 
 };
