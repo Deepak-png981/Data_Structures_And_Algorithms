@@ -6,19 +6,29 @@ using namespace std;
 // } Driver Code Ends
 
 class Solution {
+    // code here
+        // N = 5, K = 3
+        // A[] = {2, 1, 7, 4, 2}
+        // 7 4 2 2 1
+        //k1 -> 7
+        //7 4 2 2 1 -> 3 4 2 2 1
+        //4 3 2 2 1
+        //k2-> 4
+        //4 3 2 2 1 -> 2 3 2 2 1
+        //3 2 2 2 1
+        //k3->3
+        
   public:
-    long long maxDiamonds(int A[], int N, int K) {
-        // code here
-          priority_queue<int>pq(A,A+N);
-        long long sum=0;
-        while(K--)
-        {
-            int top=pq.top();
+    long long maxDiamonds(int arr[], int n, int k) {
+        priority_queue<int>pq(arr , arr + n);
+        long long ans = 0;
+        while(k--){
+            int top = pq.top();
             pq.pop();
-            sum+=top;
+            ans += top;
             pq.push(top/2);
         }
-        return sum;
+        return ans;
     }
 };
 
