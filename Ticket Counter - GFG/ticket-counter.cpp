@@ -8,7 +8,7 @@ using namespace std;
 class Solution {
   public:
     int distributeTicket(int N, int K) {
-        int start = 1 , end = N;
+         int start = 1 , end = N;
         // {1, 2, 3, 4, 5, 6, 7, 8, 9}
         while(end > start){
             start = start + K;
@@ -21,9 +21,7 @@ class Solution {
             if(start > end){
                 return start;
             }
-            
         }
-        
     }
 };
 
