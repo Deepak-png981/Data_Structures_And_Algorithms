@@ -14,7 +14,7 @@ class Solution{
     //with O(1) extra space.
     void arrange(long long arr[], int n) {
         // Your code here
-         int i;
+            int i;
         long long mx=n;
         for(i=0;i<n;i++)
         {
@@ -22,7 +22,7 @@ class Solution{
         }
         
         for(i=0;i<n;i++)
-        arr[i]/=mx;   
+        arr[i]/=mx;
     }
 };
 
