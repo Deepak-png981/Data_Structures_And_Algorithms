@@ -9,8 +9,8 @@ class Solution {
         // code here
           if(N%5 == 0)
             return -1;
-            else
-             return N%5;
+        else
+         return N%5;
     }
 };
 
