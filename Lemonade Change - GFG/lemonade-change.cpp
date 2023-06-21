@@ -7,6 +7,7 @@ using namespace std;
 class Solution {
   public:
     bool lemonadeChange(int N, vector<int> &arr) {
+        // code here
         int countFive = 0 ,countTen = 0 , countTwenty = 0;
         for(int i = 0; i<N; i++){
             // 20
