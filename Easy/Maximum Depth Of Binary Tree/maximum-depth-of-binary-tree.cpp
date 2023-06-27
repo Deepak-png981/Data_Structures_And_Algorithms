@@ -91,24 +91,18 @@ struct Node
 
 class Solution{
   public:
-    /*You are required to complete this method*/
-    int ans;
-     void dfs (Node * node,int dept)
-  {
-      if(node == NULL)
-        return;
-      ++dept;
-      ans = max(ans,dept);
-      dfs(node->left,dept);
-      dfs(node->right,dept);
-  }
-  
-  
-    /*You are required to complete this method*/
+    void dfs(Node* root , int &ans , int level){
+        if(root == NULL)
+            return ;
+        level++;
+        ans = max(ans , level);
+        dfs(root -> left , ans , level);
+        dfs(root -> right , ans , level);
+    }
     int maxDepth(Node *root) {
-        // Your code here
-        ans = 0;
-        dfs (root,0);
+        int ans = 0;
+        int level= 0;
+        dfs(root ,ans , level);
         return ans;
     }
 };
