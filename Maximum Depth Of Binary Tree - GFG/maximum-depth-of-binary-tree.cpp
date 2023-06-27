@@ -93,16 +93,16 @@ class Solution{
   public:
     void dfs(Node* root , int &ans , int level){
         if(root == NULL)
-            return ;
-        level++;
+            return;
+        level++; 
         ans = max(ans , level);
-        dfs(root -> left , ans , level);
-        dfs(root -> right , ans , level);
+        dfs(root->left , ans , level); //3
+        dfs(root->right , ans ,level);//4
     }
     int maxDepth(Node *root) {
-        int ans = 0;
-        int level= 0;
-        dfs(root ,ans , level);
+        int level = 0 , ans = 0;
+        
+        dfs(root , ans , level);
         return ans;
     }
 };
