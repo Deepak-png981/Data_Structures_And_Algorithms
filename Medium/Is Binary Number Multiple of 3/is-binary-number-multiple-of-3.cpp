@@ -15,6 +15,7 @@ int isDivisible(string s){
 	    }
 	    return cur==0;
 	}
+
 };
 
 //{ Driver Code Starts.
