@@ -5,8 +5,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    
-         int setBits(int N) {
+     int setBits(int N) {
         // Write Your Code here
         int ct=0;
         while(N > 0){
