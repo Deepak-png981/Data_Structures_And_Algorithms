@@ -8,8 +8,7 @@ using namespace std;
 class Solution{
     public:
     int setSetBit(int x, int y, int l, int r){
-        // code here
-        for(int i=l;i<=r;i++){
+       for(int i=l;i<=r;i++){
             if((y&(1<<(i-1))) == 0 ){
                 continue;
             }
