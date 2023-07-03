@@ -7,7 +7,8 @@ using namespace std;
 class Solution{
 public:
     int maxIndexDiff(int arr[], int n) {
-       if(n==1)
+        // code here
+         if(n==1)
         {
             return 0;
         }
