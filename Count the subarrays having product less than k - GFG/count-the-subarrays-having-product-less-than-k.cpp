@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution{
   public:
-      int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
+     int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
         int count=0;
         for(int i=0;i<n;i++){
        long long  temp=1LL;
