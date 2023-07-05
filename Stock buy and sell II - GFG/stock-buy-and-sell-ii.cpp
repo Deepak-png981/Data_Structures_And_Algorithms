@@ -31,7 +31,7 @@ public:
 
 class Solution {
   public:
-     int fun(int &profit, int &diff, int n, const vector<int>& v) {
+      int fun(int &profit, int &diff, int n, const vector<int>& v) {
         
         
         for (int i = 1; i < n; i++) {
