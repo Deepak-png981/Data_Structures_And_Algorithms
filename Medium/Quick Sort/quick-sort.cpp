@@ -17,7 +17,7 @@ class Solution
 {
     public:
     //Function to sort an array using quick sort algorithm.
-   void quickSort(int arr[], int low, int high)
+    void quickSort(int arr[], int low, int high)
     {
         if(low<high)
         {
