@@ -1,34 +1,31 @@
 class Solution {
 public:
-    bool canFinish(int n, vector<vector<int>>& prerequisites) {
-        vector<int>adj[n];
-        for(auto it : prerequisites){
-            adj[it[1]].push_back(it[0]);
-        }
-        vector<int>indegree(n , 0);
-        for(int i = 0; i<n; i++){
-            for(auto it : adj[i]){
-                indegree[it]++;
+    bool detectcycle(vector<vector<int>>&v,int src,vector<int>&rst,vector<int>&vis){
+        vis[src]=1;
+        rst[src]=1;
+        for(auto x:v[src]){
+            if(!vis[x]&&detectcycle(v,x,rst,vis)){
+                return true;
             }
+            else if(rst[x]==1)
+            return true;
         }
-        queue<int>q;
-        for(int i = 0; i<n; i++){
-            if(indegree[i] == 0){
-                q.push(i);
-            }
-        }
-        int count = 0;
-        while(!q.empty()){
-            int node =  q.front();
-            q.pop();
-            count++;
-            for(auto it : adj[node]){
-                indegree[it]--;
-                if(indegree[it] == 0)
-                    q.push(it);
-            }
-        }
-        if(count == n)  return true;
+        rst[src]=0;
         return false;
+    }
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>>v(numCourses);
+        stack<int>s;
+        vector<int>vis(numCourses),rst(numCourses);
+        for(auto x: prerequisites){
+            v[x[1]].push_back(x[0]);
+        }
+        for(int i=0;i<numCourses;i++){
+           if(!vis[i])
+           if(detectcycle(v,i,rst,vis))
+           return false;
+        }
+       
+        return true;
     }
 };
