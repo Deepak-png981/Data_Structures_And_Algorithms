@@ -1,14 +1,20 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        unordered_map<int, int>map;
-        int n = nums.size();
-        for(int i = 0; i<n;i++)
-        {    
-            map[nums[i]]++;
-            if(map[nums[i]] > 1)
-                return nums[i];
+        //using cycle detection
+        //step 1 : slow -> one step , fast -> two step
+        int slow = nums[0] , fast = nums[0];
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow != fast);
+        
+        //step 2 : place fast at initial point and start movind one step both
+        fast = nums[0];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
         }
-        return -1;
+        return slow;
     }
 };
