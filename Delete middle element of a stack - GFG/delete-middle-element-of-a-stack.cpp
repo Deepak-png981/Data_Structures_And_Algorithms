@@ -9,26 +9,26 @@ using namespace std;
 
 class Solution
 {
-    private:
-    
-    void solve(stack<int>&s , int count , int size){
-        if(count == size / 2){
-            s.pop();
-            return;
-        }
-        int temp = s.top();
-        s.pop();
-        count++;
-        solve(s , count, size);
-        s.push(temp);
-    }
-    
     public:
     //Function to delete middle element of a stack.
     void deleteMid(stack<int>&s, int sizeOfStack)
     {
-        int count = 0;
-        solve(s , count , sizeOfStack);
+        int k=0;
+        sizeOfStack%2==0?k=(sizeOfStack+1)/2+1 : k=(sizeOfStack+1)/2;
+        solve(s,k);
+        return;
+    }
+    
+    void solve(stack<int>&s, int k){
+        if(k==1){
+            s.pop();
+            return;
+        }
+        
+        int temp=s.top();
+        s.pop();
+        solve(s, k-1);
+        s.push(temp);
     }
 };
 
