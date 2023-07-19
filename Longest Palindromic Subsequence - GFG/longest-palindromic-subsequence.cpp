@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution{
   public:
-    int longestPalinSubseq(string s) {
+   int longestPalinSubseq(string s) {
         //code here
         string t = s;
         int n = s.size();
