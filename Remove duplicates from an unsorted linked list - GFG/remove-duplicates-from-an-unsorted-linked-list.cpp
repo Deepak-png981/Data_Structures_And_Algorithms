@@ -40,24 +40,24 @@ struct Node {
 class Solution
 {
     public:
-    //Function to remove duplicates from unsorted linked list.
     Node * removeDuplicates( Node *head) 
     {
-        unordered_map<int , int> map;
-        Node* prev = head;
-        Node* curr = head;
-        map[prev->data]++;
-        while(curr != NULL and curr->next != NULL){
-            prev = curr;
-            curr = curr->next;
-            map[curr->data]++;
-            if(map[curr->data] > 1){
-                prev->next = curr->next;
-                curr = prev;
+        unordered_map<int,int>m;
+        Node* c=head,*t=head->next;
+        m[head->data]++;
+        while(t){
+            m[t->data]++;
+            if(m[t->data]==1){
+                c->next=t;
+                c=t;
+                t=t->next;
             }
+            else t=t->next;         
         }
+        c->next=NULL;
         return head;
     }
+
 };
 
 
