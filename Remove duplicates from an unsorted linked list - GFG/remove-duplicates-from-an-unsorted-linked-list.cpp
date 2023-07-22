@@ -40,7 +40,8 @@ struct Node {
 class Solution
 {
     public:
-    Node * removeDuplicates( Node *head) 
+    //Function to remove duplicates from unsorted linked list.
+   Node * removeDuplicates( Node *head) 
     {
         unordered_map<int,int>m;
         Node* c=head,*t=head->next;
