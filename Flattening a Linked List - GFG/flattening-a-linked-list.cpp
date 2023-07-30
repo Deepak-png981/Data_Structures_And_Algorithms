@@ -111,33 +111,33 @@ struct Node{
 
 /*  Function which returns the  root of 
     the flattened linked list. */
+Node* merge(Node* a , Node* b){
+    Node* temp = new Node(0);
+    Node* res = temp;
+    while(a != NULL and b != NULL){
+        if(a -> data < b ->data){
+            temp -> bottom = a;
+            temp = temp->bottom;
+            a = a->bottom;
+        }else{
+            temp->bottom = b;
+            temp = temp->bottom;
+            b = b->bottom;
+        }
+    }
+    if(a != NULL)
+        temp->bottom = a;
+    else
+        temp -> bottom = b;
+    return res->bottom;
+}
 Node *flatten(Node *root)
 {
-   // Your code here
-   vector<int>arr;
-   Node* temp = root;
-   while(temp != NULL){
-       arr.push_back(temp->data);
-       Node* bot = temp->bottom;
-       while(bot != NULL){
-            arr.push_back(bot->data);
-            bot = bot->bottom;
-       }
-       temp = temp -> next;
-   }
-   temp = root;
-   sort(arr.begin() , arr.end());
-   int n = arr.size();
-   for(int i = 0 ; i<n-1; i++){
-        root->data = arr[i];
-        if(root->bottom == NULL){
-            Node* bott = new Node(arr[i+1]);
-            root->bottom = bott;
-            root = root->bottom;
-        }else{
-            root = root->bottom;
-        }
-   }
-   return temp;
+   if(root == NULL or root->next == NULL)
+    return root;
+    //step 1 : recursion call to reach the last and second last 
+    root->next = flatten(root->next);
+    root = merge(root , root->next);
+    return root;
 }
 
