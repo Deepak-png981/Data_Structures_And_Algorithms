@@ -8,7 +8,7 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-   vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
+    vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
         // code here
        vector<int> dist(N, 1e8);
 dist[0] = 0;
