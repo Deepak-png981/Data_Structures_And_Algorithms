@@ -9,27 +9,15 @@ using namespace std;
 //User function Template for C++
 
 class Solution{
-private:
-    void insertAtBottom(stack<int>&st , int temp){
-        if(st.empty())
-        {
-            st.push(temp);
-            return;
-        }
-        int temp2 = st.top();
-        st.pop();
-        insertAtBottom(st , temp);
-        st.push(temp2);
-    }
 public:
-    void Reverse(stack<int> &st){
-        //base case
-        if(st.empty())
-            return;
-        int temp = st.top();
-        st.pop();
-        Reverse(st);
-        insertAtBottom(st , temp);
+    void Reverse(stack<int> &St){
+        stack<int>temp;
+        while(St.empty() == 0){
+            temp.push(St.top());
+            St.pop();
+        }
+        St = temp;
+
     }
 };
 
