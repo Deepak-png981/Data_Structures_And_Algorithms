@@ -6,13 +6,17 @@ using namespace std;
 class Solution{
     public:
     long long findMinDiff(vector<long long> a, long long n, long long m){
-        sort(a.begin() , a.end());
-        long long mini = INT_MAX;
-        for(int i = 0; i<n-m+1; i++){
-            mini = min(mini , a[i+m-1] - a[i] );
-        }
-        return mini;
-    }   
+    //code
+    sort(a.begin(),a.end());
+    if(m==1)return 0;
+    
+    long long i=0,j=i+m-1;
+    long long ans=a[n-1];
+    for(; j<n and i<j; j++,i++){
+        ans = min(ans,a[j]-a[i]);
+    }
+    return ans;
+    } 
 };
 
 //{ Driver Code Starts.
