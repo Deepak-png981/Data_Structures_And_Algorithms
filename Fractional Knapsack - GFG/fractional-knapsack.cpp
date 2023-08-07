@@ -16,15 +16,18 @@ struct Item{
     int weight;
 };
 */
-
-
+// N = 3, W = 50
+// values[] = {60,100,120}
+// weight[] = {10,20,30}
+// currentWeight = 50 , remainig = 0
+// finalValue = 160 + (120/30)*20
 class Solution
 {
     private:
     static bool cmp(Item a , Item b){
-        double r1 = (double) a.value / (double) a.weight;
-        double r2 = (double) b.value / (double) b.weight;
-        return r1 > r2;
+        double prizePerKg1 = (double)a.value / (double)a.weight;
+        double prizePerKg2 = (double)b.value / (double)b.weight;
+        return prizePerKg1 > prizePerKg2;
     }
     public:
     //Function to get the maximum total value in the knapsack.
@@ -38,8 +41,8 @@ class Solution
                 currentWeight += arr[i].weight;
                 finalValue += arr[i].value;
             }else{
-                int remain = W - currentWeight;
-                finalValue = finalValue + ((double)arr[i].value / (double) arr[i].weight) * (double) remain;
+                int remaining = W - currentWeight;
+                finalValue += ((double)arr[i].value / (double)arr[i].weight)*remaining;
                 break;
             }
         }
