@@ -10,7 +10,7 @@ using namespace std;
 
 
 // } Driver Code Ends
-class Solution
+class Solution 
 {
     public:
     bool isValid(int board[9][9], int row, int col, int c) {
