@@ -10,7 +10,7 @@ class Solution
     public:
     int countFractions(int size, int n[], int d[])
     {
-           int ans=0;
+        int ans=0;
         map<pair<int,int>,int>m;
         for(int i=0;i<size;i++){
             int divide=__gcd(n[i],d[i]);
