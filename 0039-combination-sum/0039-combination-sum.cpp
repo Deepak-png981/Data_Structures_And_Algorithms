@@ -1,27 +1,32 @@
-class Solution {
-private:
-    void helper(int index , vector<int>&ds , vector<vector<int>>&ans ,int target , vector<int>&candidates){
-        if(index == candidates.size()){
-               if(target == 0){
-                   ans.push_back(ds);
-               }
-            return;                  
+class Solution
+{
+    private:
+       	//pick and not pick approach
+        void helper(int index, vector<int> &arr, int target, vector<vector< int >> &ans, vector< int > &ds)
+        {
+            if (index == arr.size())
+            {
+                if (target == 0)
+                {
+                    ans.push_back(ds);
+                }
+                return;
+            }
+           	//picking up the element
+            if (arr[index] <= target)
+            {
+                ds.push_back(arr[index]);
+                helper(index, arr, target - arr[index], ans, ds);
+                ds.pop_back();
+            }
+            helper(index + 1, arr, target, ans, ds);
         }
-        //pick up the element
-        if(candidates[index] <= target){
-            ds.push_back(candidates[index]);
-            helper(index , ds , ans , target - candidates[index] , candidates);
-            ds.pop_back();
+    public:
+        vector<vector < int>> combinationSum(vector<int> &candidates, int target)
+        {
+            vector<vector < int>> ans;
+            vector<int> ds;
+            helper(0, candidates, target, ans, ds);
+            return ans;
         }
-        //not picking up the element
-        helper(index + 1 , ds , ans , target , candidates);
-    }
-public:
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>>ans;
-        vector<int>ds;
-        helper(0 , ds , ans , target , candidates);
-        return ans;
-        
-}
 };
