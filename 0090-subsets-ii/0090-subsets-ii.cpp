@@ -1,23 +1,23 @@
 class Solution {
 private:
-    void fun(vector<int>&nums , int index , vector<int>ds , set<vector<int>>&st){
-        if(index == nums.size()){
-            sort(ds.begin() , ds.end());
-            st.insert(ds);
+    void helper(vector<int>&nums , int i , set<vector<int>>&st , vector<int>res){
+        if(i == nums.size()){
+            sort(res.begin() , res.end());
+            st.insert(res);
             return;
         }
-        fun(nums , index + 1 , ds , st);
-        ds.push_back(nums[index]);
-        fun(nums , index + 1 , ds , st);
-        
-}
+        res.push_back(nums[i]);
+        helper(nums , i + 1 , st , res);
+        res.pop_back();
+        helper(nums , i + 1 , st , res);
+    }
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<vector<int>>ans;
         set<vector<int>>st;
-        vector<int>ds;
-        fun(nums , 0 , ds , st);
-        for(auto it = st.begin() ; it != st.end(); it++){
+        vector<int>res;
+        helper(nums , 0 , st , res);
+        for(auto it = st.begin(); it != st.end(); it++){
             ans.push_back(*it);
         }
         return ans;
