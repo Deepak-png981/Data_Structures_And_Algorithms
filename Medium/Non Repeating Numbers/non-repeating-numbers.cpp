@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-     int setbit(int num ,int pos){
+    int setbit(int num ,int pos){
             return ((num&(1<<pos))!=0);
         }
     vector<int> singleNumber(vector<int> nums) 
