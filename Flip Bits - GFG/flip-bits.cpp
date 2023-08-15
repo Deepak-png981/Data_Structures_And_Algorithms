@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution{
     public:
-   int maxOnes(int a[], int n)
+    int maxOnes(int a[], int n)
     {
         int flips = 0;
         int temp = 0;
