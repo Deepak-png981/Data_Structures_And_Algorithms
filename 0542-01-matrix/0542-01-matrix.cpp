@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
-        int n = mat.size();
+         int n = mat.size();
         int m = mat[0].size();
         //visited 
         vector<vector<int>> vis(n , vector<int> (m , 0));
