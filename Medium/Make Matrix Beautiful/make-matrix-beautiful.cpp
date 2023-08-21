@@ -12,8 +12,7 @@ class Solution
     //to make the matrix beautiful.
     int findMinOpeartion(vector<vector<int> > matrix, int n)
     {
-        // 3 0 3
-        int r[n] = {0} , c[n] = {0};
+         int r[n] = {0} , c[n] = {0};
         int mx = INT_MIN;
         for(int i = 0; i<n; i++){
             int sum = 0;
