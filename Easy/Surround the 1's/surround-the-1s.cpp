@@ -8,7 +8,7 @@ using namespace std;
 class Solution {
 public:
     int Count(vector<vector<int> >& matrix) {
-           int n = matrix.size();    // number of rows
+            int n = matrix.size();    // number of rows
     int m = matrix[0].size(); // number of columns
     int number_ones = 0;
 
