@@ -14,7 +14,7 @@ class Solution
     public:
     string reverseWord(string str)
     {
-      char temp;
+        char temp;
         for(int i=0;i<str.length()/2;i++)
         {
             temp=str[i];
