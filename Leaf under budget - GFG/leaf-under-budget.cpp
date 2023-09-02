@@ -114,7 +114,7 @@ struct Node
 class Solution
 {
 public:
-   int getCount(Node *root, int k)
+    int getCount(Node *root, int k)
     {
         queue<Node*>q;
         q.push(root);
