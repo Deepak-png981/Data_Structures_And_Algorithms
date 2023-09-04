@@ -8,46 +8,28 @@ using namespace std;
 // User function Template for C++
 
 class Solution{
-private:
-    void dfs(int row , int col , vector<vector<int>>&vis , vector<vector<char>> mat){
-        vis[row][col] = 1;
-        int n = mat.size();
-        int m = mat[0].size();
-        int dx[] = { -1 , 0 , +1 , 0};
-        int dy[] = { 0 , +1 , 0 , -1};
-        for(int i = 0; i<4; i++){
-            int nrow = row + dx[i];
-            int ncol = col + dy[i];
-            if(nrow >= 0 and nrow < n and ncol >= 0 and ncol < m and 
-                vis[nrow][ncol] == 0 and mat[nrow][ncol] == 'O')
-                dfs(nrow , ncol , vis , mat);
-        }
-    }
 public:
-    vector<vector<char>> fill(int n, int m, vector<vector<char>> mat)
-    {
-        vector<vector<int>>vis(n , vector<int>(m , 0));
-        //first row and last row
-        for(int i = 0; i < m; i++){
-            if(vis[0][i] == 0 and mat[0][i] == 'O'){
-                dfs(0 , i , vis , mat);
+ vector<int> v = {1,0,-1,0,1};
+    vector<vector<char>> fill(int n, int m, vector<vector<char>> mat){
+        queue<pair<int,int>> q;
+        for(int i=0;i<n;i++)
+        for(int j=0;j<m;j++)
+            if((!i or !j or i == n-1 or j == m-1) and mat[i][j] == 'O') q.push({i,j});
+            
+        while(!q.empty()){
+            auto b = q.front();q.pop();
+            mat[b.first][b.second] = '@';
+            for(int i=0;i<4;i++){
+                int x = b.first+v[i];
+                int y = b.second+v[i+1];
+                if(x<0 or y<0 or x == n or y == m or mat[x][y] == 'X' or mat[x][y] == '@') continue;
+                q.push({x,y});
             }
-            if(vis[n-1][i] == 0 and mat[n-1][i] == 'O')
-                dfs( n-1 , i , vis , mat);
         }
-        //for first and last col
-        for(int i = 0; i<n; i++){
-            if(vis[i][0] == 0 and mat[i][0] == 'O')
-                dfs(i , 0 , vis , mat);
-            if(vis[i][m-1] == 0 and mat[i][m-1] == 'O')
-                dfs(i , m-1 , vis , mat);
-        }
-        //sabhi ko X kerdo except unke jinka visited already 1 hai
-        for(int i = 0; i<n; i++){
-            for(int j = 0; j<m; j++){
-                if(vis[i][j] == 0){
-                    mat[i][j] = 'X';
-                }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(mat[i][j] == 'O') mat[i][j] = 'X';
+                if(mat[i][j] == '@') mat[i][j] = 'O';
             }
         }
         return mat;
