@@ -8,7 +8,7 @@
  */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
+      bool hasCycle(ListNode *head) {
         set<ListNode*>st;
         while(head != NULL){
             if(st.find(head) != st.end())
