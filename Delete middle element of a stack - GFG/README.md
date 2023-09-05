@@ -1,6 +1,6 @@
 # Delete middle element of a stack
 ## Easy
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a stack, delete the&nbsp;<strong>middle element </strong>of the stack&nbsp;without using any additional data structure.<br><strong>Middle element:- </strong>ceil((size_of_stack+1)/2) (1-based indexing) from bottom of the stack.</span></p>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a stack, delete the&nbsp;<strong>middle element </strong>of the stack&nbsp;without using any additional data structure.<br><strong>Middle element:- </strong>floor((size_of_stack+1)/2) (1-based indexing) from bottom of the stack.</span></p>
 <p><strong style="font-size: 18px;">Note</strong><span style="font-size: 18px;">: The output shown by the compiler is the stack from top to bottom.</span><br>&nbsp;<br><strong><span style="font-size: 18px;">Example 1:</span></strong></p>
 <pre><span style="font-size: 18px;"><strong>Input</strong>: 
 Stack = {10, 20, 30, 40, 50}
