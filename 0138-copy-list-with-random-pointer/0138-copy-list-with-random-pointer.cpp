@@ -15,7 +15,8 @@ public:
 */
 
 class Solution {
-private:
+public:
+    private:
     void insertAtTail(Node* &head , Node* &tail , int d){
         Node* newnode = new Node(d);
         if(head == NULL){
@@ -58,16 +59,4 @@ public:
         }
         return cloneHead;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 };
