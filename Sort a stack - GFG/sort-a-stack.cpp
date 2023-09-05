@@ -50,31 +50,27 @@ public:
 
 /* The below method sorts the stack s 
 you are required to complete the below method */
-void sortinserted(stack<int>&s , int val){
-    if(s.empty()){
-        s.push(val);
-        return;
+void sortedInsert(stack<int>&s , int num){
+    if(s.empty() || (!s.empty() && s.top() < num )){
+        s.push(num);
+        return ;
+        
     }
-    else{
-        if(s.top()>val){
-            int top = s.top();
-            s.pop();
-            sortinserted(s , val);
-            s.push(top);
-        }else{
-            s.push(val);
-            return;
-        }
-    }
+    
+    int n  = s.top();
+    s.pop();
+    
+    sortedInsert(s, num);
+    
+    s.push(n);
 }
 void SortedStack :: sort()
 {
-    if(s.empty())
-        return;
-    else{
-    int val = s.top();
-    s.pop();
-    sort();
-    sortinserted(s , val);
-    }
+   if(s.empty()){
+       return;
+   }
+   int num = s.top();
+   s.pop();
+   sort();
+   sortedInsert(s , num);
 }
