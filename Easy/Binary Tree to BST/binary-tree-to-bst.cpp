@@ -109,7 +109,9 @@ struct Node
 
 class Solution{
   public:
-     void inorder(Node *root, vector<Node*>& nodes) {
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+   void inorder(Node *root, vector<Node*>& nodes) {
         if (!root)
             return;
 
