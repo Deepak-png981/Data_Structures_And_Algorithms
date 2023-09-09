@@ -96,7 +96,7 @@ struct Node {
 // return the Kth largest element in the given BST rooted at 'root'
 class Solution
 {
-   void revIo(Node *root, int &K, int &ans)
+    void revIo(Node *root, int &K, int &ans)
     {
         if(root==NULL)return;
         revIo(root->right, K, ans);
