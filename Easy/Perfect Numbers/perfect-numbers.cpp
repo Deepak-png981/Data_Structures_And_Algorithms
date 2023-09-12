@@ -5,7 +5,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-        int isPerfectNumber(long long N) {
+      int isPerfectNumber(long long N) {
         // code here
         long long sum;
         for(int i=1;i<=sqrt(N);i++)
