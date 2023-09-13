@@ -10,19 +10,21 @@ using namespace std;
 class Solution{
 public:
     string findLargest(int N, int S){
-        string ans;
-        if(S == 0 and N > 1 || S > N*9)
+        string ans = "";
+        if(S == 0 and N > 1 or S > N*9)
             return "-1";
         while(S >= 9){
             ans += "9";
-            S -=9;
+            S -= 9;
         }
-        if(S) 
+        if(S){
             ans += to_string(S);
-        while(ans.size() < N)
+        }
+        while(ans.size() < N){
             ans += "0";
-        return ans;
+        }
         
+        return ans;
     }
 };
 
