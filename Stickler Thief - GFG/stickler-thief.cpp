@@ -8,7 +8,7 @@ class Solution
 {
     public:
     //Function to find the maximum money the thief can get.
-   int FindMaxSum(int arr[], int n)
+    int FindMaxSum(int arr[], int n)
     {
        int prev2=0;
        int prev1=arr[0];
