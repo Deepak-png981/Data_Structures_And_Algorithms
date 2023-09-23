@@ -9,20 +9,27 @@ class Solution{
     // Function to find equilibrium point in the array.
     // a: input array
     // n: size of array
-    int equilibriumPoint(long long a[], int n) {
-        if(n == 1)
-        return 1;
-        int sum = 0;
-        // Your code here
-        for(int i = 0; i<n; i++)    sum += a[i];
-        int c = 0;
-        for(int i = 1; i<n; i++){
-            c+=a[i-1];
-            if(c == sum-c - a[i])
+    int equilibriumPoint(long long arr[], int n) {
+        long left = 0;
+        for(long long i = 0; i<n; i++) left += arr[i];
+        
+        long right = 0;
+   
+        long i = 0;
+        long j = 0;
+        while(j < n && i < n){
+            left -= arr[j];
+            j++;
+            if(left == right){
                 return i+1;
+            }
+            right += arr[i];
+            i++;
+            
+            
         }
         return -1;
-            
+        
     }
 
 };
