@@ -14,12 +14,12 @@ class Solution
     public:
     string reverseWord(string str)
     {
-        char temp;
-        for(int i=0;i<str.length()/2;i++)
-        {
-            temp=str[i];
-            str[i]=str[str.length()-i-1];
-            str[str.length()-i-1]=temp;
+        int n = str.size();
+        int start = 0 , end = n-1;
+        while(start <= end){
+            swap(str[start] , str[end]);
+            start++;
+            end--;
         }
         return str;
     }
