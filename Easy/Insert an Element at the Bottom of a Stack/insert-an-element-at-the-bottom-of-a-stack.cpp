@@ -9,23 +9,19 @@ using namespace std;
 //User function Template for C++
 
 class Solution{
-private:
-    void helper(stack<int>&st , int x , int size , int count){
-        if(st.empty()){
-            st.push(x);
-            return;
-        }
-        int top = st.top();
-        st.pop();
-        helper(st , x , size , count + 1);
-        st.push(top);
-        return ;
-        
-    }
 public:
     stack<int> insertAtBottom(stack<int> st,int x){
-        int n = st.size();
-        helper(st , x , n , 0 );
+        stack<int>temp;
+        while(st.size() != 0){
+            temp.push(st.top());
+            st.pop();
+        }
+        st.push(x);
+        while(temp.size() != 0){
+            st.push(temp.top());
+            temp.pop();
+        }
+        
         return st;
     }
 };
