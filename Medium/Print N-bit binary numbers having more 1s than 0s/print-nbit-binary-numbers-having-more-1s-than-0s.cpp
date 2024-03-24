@@ -6,32 +6,24 @@ using namespace std;
 // } Driver Code Ends
 //User function template for C++
 class Solution{
+    // n=2
+    // 11
+    // 10
 public:	
-//4
-// 1111
-// 1110
-// 1101
-// 1011
-// 1010
-    void recursiveFunc(vector<string>&ans , string temp , int extraOnes , int remainingPlaces){
-        if(remainingPlaces == 0){
+    void recursiveFunc(vector<string>&ans , string temp , int extraOnes , int numOfPlaces){
+        //
+        if(numOfPlaces == 0){
             ans.push_back(temp);
             return;
         }
-        //add 1 to the string and move on
-        recursiveFunc(ans , temp + "1" ,extraOnes + 1 , remainingPlaces-1);
-        //add 0 from the string and move on
-        if(0 < extraOnes){
-            recursiveFunc(ans , temp + "0" , extraOnes - 1 , remainingPlaces -1);
-        }
-        
-        
+        recursiveFunc(ans , temp + "1" , extraOnes + 1,  numOfPlaces-1);
+        if(0 < extraOnes)
+            recursiveFunc(ans , temp + "0" , extraOnes - 1, numOfPlaces - 1);
     }
 	vector<string> NBitBinary(int n)
 	{
 	    vector<string>ans;
-	    string temp="";
-	    recursiveFunc(ans , temp , 0 , n);
+	    recursiveFunc(ans , "" , 0 , n);
 	    return ans;
 	}
 };
