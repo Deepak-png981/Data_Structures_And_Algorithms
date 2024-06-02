@@ -1,24 +1,20 @@
 class Solution {
 public:
-    
     double myPow(double x, int n) {
-        double ans = 1.0;
         long long nn = n;
-        if(nn < 0)
-            nn = -1*nn;
+        if(n < 0){
+            nn = -nn;
+        }
+        double ans = 1.0;
         while(nn){
-            if(nn%2 == 1){
-                ans = ans*x;
+            if(nn % 2){ //odd
+                ans = ans * x;
                 nn = nn-1;
-            }else{
-                x = x*x;
+            }else{ //even
+                x = x * x;
                 nn = nn/2;
             }
         }
-        if(n < 0){
-            return 1.0/ans;
-        }
-        else
-            return ans;
+        return n < 0 ? (double)1.0/ans : ans;
     }
 };
