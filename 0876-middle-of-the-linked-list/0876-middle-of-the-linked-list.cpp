@@ -9,14 +9,27 @@
  * };
  */
 class Solution {
+private:
+    int calSize(ListNode* head){
+        int count = 0;
+        while(head != NULL){
+            count++;
+            head = head->next;
+        }
+        return count;
+    }
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast != NULL and fast->next != NULL){
-            slow = slow->next;
-            fast = fast->next->next;
+        int size = calSize(head);
+        ListNode* temp = head;
+        int count = (size/2)+1;
+        ListNode* curr = head;
+        while(curr != NULL){
+            count = count - 1;
+            if(count == 0)
+                break;
+            curr = curr->next;
         }
-        return slow;
+        return curr;
     }
 };
