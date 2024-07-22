@@ -8,15 +8,16 @@
  */
 class Solution {
 public:
-      bool hasCycle(ListNode *head) {
-        set<ListNode*>st;
-        while(head != NULL){
-            if(st.find(head) != st.end())
-                return head;
-            st.insert(head);
-            head = head->next;
-            
+    bool hasCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast != NULL && fast->next != NULL){
+            fast = fast -> next ->next;
+            slow = slow->next;
+            if(slow == fast)
+                return true;
         }
-        return head;
+        return false;
+        
     }
 };
