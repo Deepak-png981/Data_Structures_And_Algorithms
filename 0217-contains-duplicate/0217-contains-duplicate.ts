@@ -1,8 +1,10 @@
 function containsDuplicate(nums: number[]): boolean {
-    const arrayLength = nums.length;
-    const hashSet = new Set();
+    const hashSet = new Set<number>();
     for(const num of nums){
+        if(hashSet.has(num)){
+            return true;
+        }
         hashSet.add(num);
     }
-    return !(hashSet.size == arrayLength);
+    return false;
 };
