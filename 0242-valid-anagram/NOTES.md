@@ -1,1 +1,1 @@
-​
+Record is used to store the object. Then I learned about the Object.keys which is used to give us all the keys
