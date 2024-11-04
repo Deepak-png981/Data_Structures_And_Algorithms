@@ -1,18 +1,23 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-         int row[9][9] = {0}, col[9][9] = {0}, grid_3x3[9][9] = {0}; 
-        
-        for(int i = 0; i < board.size(); i++)
-            for(int j = 0; j < board[i].size(); j++)
-                if(board[i][j] != '.')
-                {
-                    int num = board[i][j] - '1', k = i/3*3+j/3; //k for finding grid index from 0 to 8
-                    if(row[i][num] || col[j][num] || grid_3x3[k][num])
-                        return false;
-                    row[i][num] = col[j][num] = grid_3x3[k][num] = 1;
-                }
-        
+        int n = 9;
+        unordered_set<char>rows[n];
+        unordered_set<char>cols[n];
+        unordered_set<char>boxes[n];
+        for(int row = 0; row<n; row++){
+            for(int col = 0; col<n; col++){
+                int value = board[row][col];
+                if(value == '.')
+                    continue;
+                int boardIndex = (row/3) * 3 + (col/3);
+                if(rows[row].count(value) or cols[col].count(value) or boxes[boardIndex].count(value))
+                    return false;
+                rows[row].insert(value);
+                cols[col].insert(value);
+                boxes[boardIndex].insert(value);
+            }
+        }
         return true;
     }
 };
