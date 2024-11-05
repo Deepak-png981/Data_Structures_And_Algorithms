@@ -6,16 +6,16 @@ public:
         unordered_set<char>cols[n];
         unordered_set<char>boxes[n];
         for(int row = 0; row<n; row++){
-            for(int col = 0; col<n; col++){
+            for(int col = 0; col < n; col++){
                 int value = board[row][col];
                 if(value == '.')
                     continue;
-                int boardIndex = (row/3) * 3 + (col/3);
-                if(rows[row].count(value) or cols[col].count(value) or boxes[boardIndex].count(value))
+                int boardIdx = (row / 3) * 3 + col/3;
+                if(rows[row].count(value) or cols[col].count(value) or boxes[boardIdx].count(value))
                     return false;
                 rows[row].insert(value);
                 cols[col].insert(value);
-                boxes[boardIndex].insert(value);
+                boxes[boardIdx].insert(value);
             }
         }
         return true;
