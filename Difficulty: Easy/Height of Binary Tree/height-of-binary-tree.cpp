@@ -1,13 +1,12 @@
 //{ Driver Code Starts
-// Initial template for C++
-
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node {
+class Node {
+  public:
     int data;
-    struct Node* left;
-    struct Node* right;
+    Node* left;
+    Node* right;
 
     Node(int val) {
         data = val;
@@ -22,7 +21,7 @@ Node* buildTree(string str) {
         return NULL;
 
     // Creating vector of strings from input
-    // string after spliting by space
+    // string after splitting by space
     vector<string> ip;
 
     istringstream iss(str);
@@ -39,7 +38,6 @@ Node* buildTree(string str) {
     // Starting from the second element
     int i = 1;
     while (!queue.empty() && i < ip.size()) {
-
         // Get and remove the front of the queue
         Node* currNode = queue.front();
         queue.pop();
@@ -49,10 +47,8 @@ Node* buildTree(string str) {
 
         // If the left child is not null
         if (currVal != "N") {
-
             // Create the left child for the current Node
             currNode->left = new Node(stoi(currVal));
-
             // Push it to the queue
             queue.push(currNode->left);
         }
@@ -65,10 +61,8 @@ Node* buildTree(string str) {
 
         // If the right child is not null
         if (currVal != "N") {
-
             // Create the right child for the current node
             currNode->right = new Node(stoi(currVal));
-
             // Push it to the queue
             queue.push(currNode->right);
         }
@@ -83,14 +77,14 @@ Node* buildTree(string str) {
 // User function template for C++
 
 /*
-struct Node
-{
+class Node {
+public:
     int data;
-    struct Node* left;
-    struct Node* right;
+    Node* left;
+    Node* right;
 
-    Node(int x){
-        data = x;
+    Node(int val) {
+        data = val;
         left = right = NULL;
     }
 };
@@ -98,16 +92,13 @@ struct Node
 class Solution {
   public:
     // Function to find the height of a binary tree.
-    int height(struct Node* node) {
-        if(node == NULL or (node->left == NULL and node->right == NULL))
-            return 0;
-        int ans = 0;
-        ans = max(1+ height(node->left) , 1 + height(node->right));
-        return ans;
-    }
+    int h(Node* n){return 1 + max(n->left?h(n->left):0,n->right?h(n->right):0);}
+    int height(Node* node) {return node?(h(node) - 1):0;}
+
 };
 
 //{ Driver Code Starts.
+
 int main() {
     int t;
     scanf("%d ", &t);
@@ -123,4 +114,5 @@ int main() {
     }
     return 0;
 }
+
 // } Driver Code Ends
