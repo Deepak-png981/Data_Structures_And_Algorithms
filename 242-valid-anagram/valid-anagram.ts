@@ -1,20 +1,9 @@
-const isAnagram = (s: string, t: string): boolean => {
+function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length)  return false;
-    //for the s
-    const map_s = new Map<string, number>();
-    for (const ch of s) {
-        map_s.set(ch, (map_s.get(ch) || 0) + 1);
+    const alphabetArray = new Array(26).fill(0);
+    for(var i = 0; i<s.length; i++){
+        alphabetArray[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        alphabetArray[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
     }
-
-    const map_t = new Map<string, number>();
-    for (const ch of t) {
-        map_t.set(ch, (map_t.get(ch) || 0) + 1);
-    }
-    //as we have confirmed that the length is same 
-    for(const [key , value] of map_s){
-        if(map_t.get(key) !== value)
-            return false;
-    }
-    return true;
-
+    return alphabetArray.every((c) => c === 0);
 };
